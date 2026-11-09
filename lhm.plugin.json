@@ -1,0 +1,99 @@
+{
+  "cloudEndpoint": "https://launchwren.com/mcp",
+  "description": "Search 170+ launch directories (DR, free plan, dofollow rule) and this week’s indie product launches on LaunchWren.",
+  "homepage": "https://launchwren.com",
+  "identifier": "launchwren",
+  "name": "LaunchWren",
+  "prompts": [],
+  "resources": [],
+  "tools": [
+    {
+      "name": "search_directories",
+      "title": "Search launch directories",
+      "description": "Search 173 launch directories and Product Hunt alternatives that LaunchWren compares: domain rating (DR), free plan, wait time, link type (dofollow or nofollow), and what the free plan needs. Data checked 2026-11-05.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Text to match in the directory name or URL."
+          },
+          "free_only": {
+            "type": "boolean",
+            "description": "Only directories with a free plan."
+          },
+          "dofollow_only": {
+            "type": "boolean",
+            "description": "Only directories that give a dofollow link."
+          },
+          "no_badge": {
+            "type": "boolean",
+            "description": "Only directories whose free listing does not need a badge or backlink on your site."
+          },
+          "min_dr": {
+            "type": "number",
+            "description": "Minimum domain rating (0–100)."
+          },
+          "limit": {
+            "type": "number",
+            "description": "Maximum results (1–50, default 20)."
+          }
+        }
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "list_launches",
+      "title": "List weekly launches",
+      "description": "List the products launching on LaunchWren in one week (Monday to Sunday, UTC), with tagline, category, pricing, votes and rank.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "week": {
+            "type": "string",
+            "description": "Monday of the week as YYYY-MM-DD. Default: the current week."
+          }
+        }
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_launch",
+      "title": "Get one launch",
+      "description": "Get the details of one LaunchWren launch by its slug (the part after /p/ in its URL).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Product slug, for example \"testoptim\"."
+          }
+        },
+        "required": [
+          "slug"
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    }
+  ],
+  "version": "1.0.0",
+  "author": "Shahid Kamal",
+  "authorUrl": "https://github.com/shahid-builds",
+  "tags": [
+    "launch",
+    "directories",
+    "startups",
+    "indie-makers",
+    "seo",
+    "product-hunt-alternatives"
+  ]
+}
